@@ -1,0 +1,26 @@
+{
+  "kind": "collectionType",
+  "collectionName": "user_trainings",
+  "info": {
+    "singularName": "user-training",
+    "pluralName": "user-trainings",
+    "displayName": "UserTraining",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "trainingId": {
+      "type": "integer"
+    },
+    "didUserPay": {
+      "type": "boolean",
+      "default": false
+    },
+    "userId": {
+      "type": "uid"
+    }
+  }
+}
