@@ -36,6 +36,13 @@
       "type": "relation",
       "relation": "oneToMany",
       "target": "api::user-training.user-training"
+    },
+    "backgroundImage": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
     }
   }
 }
