@@ -13,16 +13,20 @@
   "pluginOptions": {},
   "attributes": {
     "title": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "description": {
-      "type": "text"
+      "type": "text",
+      "required": true
     },
     "duration": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "date": {
-      "type": "datetime"
+      "type": "datetime",
+      "required": true
     },
     "zoom_link": {
       "type": "string"
@@ -38,11 +42,16 @@
       "target": "api::user-training.user-training"
     },
     "backgroundImage": {
+      "type": "media",
+      "multiple": false,
+      "required": true,
       "allowedTypes": [
         "images"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
+    },
+    "maxUserTrainings": {
+      "type": "integer",
+      "required": true
     }
   }
 }
