@@ -19,8 +19,8 @@
       "type": "boolean",
       "default": false
     },
-    "userId": {
-      "type": "uid"
+    "user": {
+      "type": "email"
     }
   }
 }
