@@ -1813,7 +1813,7 @@
     "@strapi/utils" "4.5.5"
     "fs-extra" "10.0.0"
 
-"@strapi/strapi@^4.3.4", "@strapi/strapi@4.5.5":
+"@strapi/strapi@^4.0.0", "@strapi/strapi@^4.3.4", "@strapi/strapi@4.5.5":
   "integrity" "sha512-j7IfdPU+sAE8dQ5FZSt7LVKYX51IiOweH5XEee2TgTQ5TqMk3yEZEfC04VKNAG8ZKTyHsuKjdnZPe2nGL+s2rA=="
   "resolved" "https://registry.npmjs.org/@strapi/strapi/-/strapi-4.5.5.tgz"
   "version" "4.5.5"
@@ -2716,6 +2716,13 @@
   "integrity" "sha512-xh1Rl34h6Fi1DC2WWKfxUTVqRsNnr6LsKz2+hfwDxQJWmrx8+c7ylaqBMcHfl1U1r2dsifOvKX3LQuLNZ+XSvA=="
   "resolved" "https://registry.npmjs.org/aws4/-/aws4-1.11.0.tgz"
   "version" "1.11.0"
+
+"axios@^0.24.0":
+  "integrity" "sha512-Q6cWsys88HoPgAaFAVUb0WpPk0O8iTeisR9IMqy9G8AbO4NlpVknrnQS03zzF9PGAWgO3cgletO3VjV/P7VztA=="
+  "resolved" "https://registry.npmjs.org/axios/-/axios-0.24.0.tgz"
+  "version" "0.24.0"
+  dependencies:
+    "follow-redirects" "^1.14.4"
 
 "axios@1.2.1":
   "integrity" "sha512-I88cFiGu9ryt/tfVEi4kX2SITsvDddTajXTOFmt2uK1ZVA8LytjtdeyefdQWEf5PU8w+4SSJDoYnggflB5tW4A=="
@@ -4866,7 +4873,7 @@
   "resolved" "https://registry.npmjs.org/fn.name/-/fn.name-1.1.0.tgz"
   "version" "1.1.0"
 
-"follow-redirects@^1.0.0", "follow-redirects@^1.15.0":
+"follow-redirects@^1.0.0", "follow-redirects@^1.14.4", "follow-redirects@^1.15.0":
   "integrity" "sha512-VQLG33o04KaQ8uYi2tVNbdrWp1QWxNNea+nmIB4EVM28v0hmP17z7aG1+wAkNzVq4KeXTq3221ye5qTJP91JwA=="
   "resolved" "https://registry.npmjs.org/follow-redirects/-/follow-redirects-1.15.2.tgz"
   "version" "1.15.2"
@@ -9511,6 +9518,13 @@
   "integrity" "sha512-3H20QlwQsSm2OvAxWIYhs+j01MzzqwMwGiiO1NQaJYZgJZFPuAbf95/DiKRBSTYIJ2FeGUc+B/6mPGcWP9dO3Q=="
   "resolved" "https://registry.npmjs.org/std-env/-/std-env-3.3.1.tgz"
   "version" "3.3.1"
+
+"strapi-plugin-ezforms@^0.1.5":
+  "integrity" "sha512-Bw/hMx7QcwBiHlgVhUDTeh16ti5uLE7zJGMuoEMyn92DXA8IwnxIoGOVQLGfmqZcjcwRhGOUwAznSfee2rQPSA=="
+  "resolved" "https://registry.npmjs.org/strapi-plugin-ezforms/-/strapi-plugin-ezforms-0.1.5.tgz"
+  "version" "0.1.5"
+  dependencies:
+    "axios" "^0.24.0"
 
 "stream-browserify@^3.0.0":
   "integrity" "sha512-H73RAHsVBapbim0tU2JwwOiXUj+fikfiaoYAKHF3VJfA0pe2BCzkhAHBlLG6REzE+2WNZcxOXjK7lkso+9euLA=="
