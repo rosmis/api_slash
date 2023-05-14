@@ -21,6 +21,9 @@
     },
     "user": {
       "type": "email"
+    },
+    "request_uuid": {
+      "type": "uid"
     }
   }
 }
