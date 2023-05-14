@@ -52,6 +52,10 @@
     "maxUserTrainings": {
       "type": "integer",
       "required": true
+    },
+    "price": {
+      "type": "integer",
+      "required": true
     }
   }
 }
