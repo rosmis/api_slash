@@ -14,6 +14,18 @@ module.exports = ({ env }) => ({
         },
       },
     },
+    email: {
+      config: {
+        provider: 'sendgrid',
+        providerOptions: {
+          apiKey: env('SENDGRID_API_KEY'),
+        },
+        settings: {
+          defaultFrom: 'rosmis123@gmail.com',
+          defaultReplyTo: 'rosmis123@gmail.com',
+        },
+      },
+    },
     ezforms:{
       config:{
         captchaProvider: {
