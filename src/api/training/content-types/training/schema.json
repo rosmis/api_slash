@@ -56,6 +56,9 @@
     "price": {
       "type": "integer",
       "required": true
+    },
+    "priceId": {
+      "type": "string"
     }
   }
 }
