@@ -7,19 +7,21 @@ module.exports = {
 
     try {
       const event = stripe.webhooks.constructEvent(unparsedBody, sig, process.env.STRIPE_SIGNING_SECRET);
-      console.log("event", event);
 
-      if (event.type === "charge.succeeded") {
-        // Process the successful charge event here if needed
-        // You can perform any necessary database updates, notifications, etc.
+      if (event.type === "checkout.session.completed") {
+        const sessionId = event.data.object.id;
 
-        // Respond with "success" status
-        console.log("user paid");
+        // patch the associated userTraining
+        await strapi.db.query("api::user-training.user-training").update({
+          where: { sessionId },
+          data: {
+            didUserPay: true,
+          },
+        });
+
         return ctx.send({ status: "success" });
       }
 
-      // Respond to other events if needed
-      console.log("user didnt pay yet");
       return ctx.send({ status: "ignored" });
     } catch (error) {
       console.error("Error processing Stripe webhook:", error);

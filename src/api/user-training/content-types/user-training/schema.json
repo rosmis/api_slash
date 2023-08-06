@@ -22,8 +22,8 @@
     "user": {
       "type": "email"
     },
-    "request_uuid": {
-      "type": "uid"
+    "sessionId": {
+      "type": "string"
     }
   }
 }
