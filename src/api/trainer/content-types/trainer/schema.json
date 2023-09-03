@@ -44,6 +44,9 @@
     "userId": {
       "type": "string",
       "required": true
+    },
+    "stripeAccountId": {
+      "type": "string"
     }
   }
 }
