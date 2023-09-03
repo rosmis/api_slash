@@ -17,5 +17,14 @@ module.exports = {
         auth: false,
       },
     },
+
+    {
+      method: "GET",
+      path: "/webhook/status/:id",
+      handler: "webhook.checkUserStripeAccountStatus",
+      config: {
+        auth: false,
+      },
+    },
   ],
 };
