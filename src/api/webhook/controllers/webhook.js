@@ -113,6 +113,11 @@ module.exports = {
     }
   },
   checkUserStripeAccountStatus: async ctx => {
+    const supabaseUrl = process.env.VITE_SUPABASE_URL;
+    const supabaseServiceRoleKey = process.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
+
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey);
+
     const stripeAccountId = ctx.params.id;
 
     if (!stripeAccountId) return ctx.send({ status: "error", error: "No stripe account id was provided" });
