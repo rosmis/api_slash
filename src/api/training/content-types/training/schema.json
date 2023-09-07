@@ -28,9 +28,6 @@
       "type": "datetime",
       "required": true
     },
-    "zoom_link": {
-      "type": "string"
-    },
     "trainer": {
       "type": "relation",
       "relation": "oneToOne",
@@ -55,10 +52,29 @@
     },
     "price": {
       "type": "integer",
-      "required": true
+      "required": true,
+      "default": 5
     },
     "priceId": {
       "type": "string"
+    },
+    "domain": {
+      "type": "enumeration",
+      "enum": [
+        "Motion Design",
+        "Stratégie de communication",
+        "Création 3D",
+        "Développement web",
+        "PAO / logiciel de création",
+        "Figma / XD",
+        "Premiere Pro",
+        "No Code",
+        "SEO / SEA",
+        "Communication digitale",
+        "Marketing",
+        "Soft Skills / Autres"
+      ],
+      "required": true
     }
   }
 }

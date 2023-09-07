@@ -4,7 +4,8 @@
   "info": {
     "singularName": "trainer",
     "pluralName": "trainers",
-    "displayName": "Trainer"
+    "displayName": "Trainer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,20 +13,23 @@
   "pluginOptions": {},
   "attributes": {
     "firstName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "lastName": {
-      "type": "string"
+      "type": "string",
+      "required": true
     },
     "profilePicture": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "educationLevel": {
       "type": "enumeration",
@@ -34,7 +38,12 @@
         "ESD B2",
         "ESD B3",
         "ESD B3 CI"
-      ]
+      ],
+      "required": true
+    },
+    "userId": {
+      "type": "string",
+      "required": true
     }
   }
 }
