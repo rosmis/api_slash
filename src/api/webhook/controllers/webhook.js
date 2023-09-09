@@ -115,8 +115,10 @@ module.exports = {
   checkUserStripeAccountStatus: async ctx => {
     const supabaseUrl = process.env.VITE_SUPABASE_URL;
     const supabaseServiceRoleKey = process.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
+    const supabaseAnonKey = process.env.VITE_SUPABASE_ANON_KEY;
 
     const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey);
+    const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
     const stripeAccountId = ctx.params.id;
 
@@ -127,12 +129,26 @@ module.exports = {
     if (account.charges_enabled && account.details_submitted) {
       // if both boolean to true, the user has successfully filled all credit cards infos
 
+      const { data: userInfos } = await supabase.from("profiles").select("*").eq("stripe_account_id", stripeAccountId);
+
       await supabaseAdmin
         .from("profiles")
         .update({
           did_user_fill_credit_infos: true,
         })
         .eq("stripe_account_id", stripeAccountId);
+
+      //send confirmation email to inform user about successfull tutor account
+      //TODO create email template in sendgrid
+
+      await strapi.plugins["email"].services.email.send({
+        to: userEmail,
+        from: "contact@slash-mentoring.com",
+        template_id: "d-234c43cfcada4f1f9dbb2593a1a0c2bc",
+        dynamicTemplateData: {
+          firstName: userInfos[0].first_name,
+        },
+      });
     }
 
     return ctx.send({
