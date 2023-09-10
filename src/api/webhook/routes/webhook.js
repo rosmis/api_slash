@@ -26,5 +26,14 @@ module.exports = {
         auth: false,
       },
     },
+
+    {
+      method: "GET",
+      path: "/webhook/users",
+      handler: "webhook.getAllSupabaseUsers",
+      config: {
+        auth: false,
+      },
+    },
   ],
 };
