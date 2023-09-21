@@ -21,14 +21,14 @@ module.exports = {
 
       if (!authUser.user) return;
 
-      const { email: _userEmail, id: userId } = authUser.user;
+      const { email: userEmail, id: userId } = authUser.user;
 
       const { data: userInfos } = await supabase.from("profiles").select("*").eq("id", userId);
 
-      // don't perform any operations if the user has already filled in his credit infos - shoudn't happen but essential to include it
+      // // don't perform any operations if the user has already filled in his credit infos - shoudn't happen but essential to include it
       if (userInfos[0].did_user_fill_credit_infos) return;
 
-      // update user's profile row to did_user_fill_credit_infos to false
+      // // update user's profile row to did_user_fill_credit_infos to false
 
       await supabaseAdmin
         .from("profiles")
@@ -38,6 +38,15 @@ module.exports = {
         .eq("id", userId);
 
       // 2.send user email to invite him to fill his credit card infos
+
+      await strapi.plugins["email"].services.email.send({
+        to: userEmail,
+        from: "contact@slash-mentoring.com",
+        template_id: "d-234c43cfcada4f1f9dbb2593a1a0c2bc",
+        dynamicTemplateData: {
+          firstName: userInfos[0].first_name,
+        },
+      });
     } catch (error) {
       console.error(error);
     }
