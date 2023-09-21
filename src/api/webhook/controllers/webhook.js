@@ -157,4 +157,24 @@ module.exports = {
       isUserFullyVerified: account.charges_enabled && account.details_submitted,
     });
   },
+  getAllSupabaseUsers: async ctx => {
+    const supabaseUrl = process.env.VITE_SUPABASE_URL;
+    const supabaseServiceRoleKey = process.env.VITE_SUPABASE_SERVICE_ROLE_KEY;
+
+    const { _userId } = ctx.request.query;
+
+    //TODO filter this request with ISIS user id
+    // if (userId !== isisUserId) return ctx.send({ status: "error", error: "You don't have the authorization to perform this request" });
+
+    const supabaseAdmin = createClient(supabaseUrl, supabaseServiceRoleKey);
+
+    const {
+      data: { users: supabaseUsers },
+    } = await supabaseAdmin.auth.admin.listUsers();
+
+    return ctx.send({
+      status: "success",
+      supabaseUsers,
+    });
+  },
 };
